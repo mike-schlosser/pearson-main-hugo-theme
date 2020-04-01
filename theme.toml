@@ -1,0 +1,8 @@
+name = "pearson-main-hugo-theme"
+license = "MIT"
+description = "Bootstrap Theme for Pearson Hugo sites."
+homepage = "https://github.com/mike-schlosser/pearson-main-hugo-theme"
+
+[author]
+  name = "Mike Schlosser"
+  homepage = "https://github.com/mike-schlosser"
