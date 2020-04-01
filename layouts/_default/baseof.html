@@ -23,7 +23,7 @@
       <link rel="shortcut icon" href="/static/assets/favicon.ico">
 
       <!-- TODO - dynamically determine which CSS partials to load on pages using Hugo -->
-      {{ $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
+      {{ $style := resources.Get "css/main.scss" | toCSS | minify }}
       <link rel="preload" href="{{ $style.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
       <noscript><link rel="stylesheet" href="{{ $style.Permalink }}"></noscript>
     {{ end }}
@@ -55,7 +55,7 @@
       {{ $popper := resources.Get "js/popper/popper.min.js" }}
       {{ $bootstrap := resources.Get "js/bootstrap/bootstrap.min.js" }}
 
-      {{ $js := slice $jquery $popper $bootstrap | resources.Concat "js/main.js" | minify | fingerprint }}
+      {{ $js := slice $jquery $popper $bootstrap | resources.Concat "js/main.js" | minify }}
       <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
 
     {{ end }}
