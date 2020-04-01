@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html {{ with $.Site.LanguageCode }}lang='{{ $.Site.LanguageCode | default "en" }}'{{ end }}>
+  <head>
+
+    {{ block "title" . }}
+      <title>{{ .Title }}</title>
+    {{ end }}
+
+    {{ block "meta" . }}
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="MobileOptimized" content="320">
+      <meta name="viewport" content="width=device-width,minimum-scale=1">
+      {{ with .Params.description }}<meta name="description" content="{{ . }}"/>{{ end }}
+
+      {{ hugo.Generator }}
+
+      {{ with .Params.robots }}<META NAME="ROBOTS" CONTENT="{{ . }}">{{ end }}
+    {{ end }}
+
+    {{ block "links" . }}
+      <link rel="shortcut icon" href="/static/assets/favicon.ico">
+
+      <!-- TODO - dynamically determine which CSS partials to load on pages using Hugo -->
+      {{ $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
+      <link rel="preload" href="{{ $style.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="{{ $style.Permalink }}"></noscript>
+    {{ end }}
+
+    {{ block "scripts-head" . }}
+      {{ partial "head/loadCSS.html" . }}
+      {{ with $.Site.Params.google_tag_manager }}{{ partial "head/gtm.html" . }}{{ end }}
+    {{ end }}
+
+  </head>
+
+  <body>
+
+    {{ with $.Site.Params.google_tag_manager }}{{ partial "body/gtm.html" . }}{{ end }}
+
+    {{ block "main" .}}
+      <main role="main">
+        {{ .Content }}
+      </main>
+    {{ end }}
+
+    {{ block "footer" . }}
+
+    {{ end }}
+
+    {{ block "scripts-footer" . }}
+
+      {{ $jquery := resources.Get "js/jquery/jquery-3.2.1.slim.min.js" }}
+      {{ $popper := resources.Get "js/popper/popper.min.js" }}
+      {{ $bootstrap := resources.Get "js/bootstrap/bootstrap.min.js" }}
+
+      {{ $js := slice $jquery $popper $bootstrap | resources.Concat "js/main.js" | minify | fingerprint }}
+      <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
+
+    {{ end }}
+
+  </body>
+</html>

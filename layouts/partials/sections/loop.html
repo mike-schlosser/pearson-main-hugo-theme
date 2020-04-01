@@ -1,0 +1,14 @@
+{{ $sectionType := .type }}
+<section class="section{{ with $sectionType }}--{{ . }}{{ end }}">
+	<div class="container">
+		{{ $modules := .modules }}
+		{{ range $modules}}
+			{{ $moduleType := .type }}
+			{{ if eq $moduleType "lead-box" }}
+				{{ partial "sections/lead-box.html" . }}
+			{{ else if eq $moduleType "content-box" }}
+				{{ partial "sections/content-box.html" . }}
+			{{ end }}
+		{{ end }}
+	</div>
+</section>

@@ -1,0 +1,9 @@
+{{ define "main" }}
+	<main class="wrapper" role="main">
+	{{ $sections := .Params.sections }}
+
+	{{ range $sections }}
+		{{ partial "sections/loop.html" . }}
+	{{ end }}
+	</main>
+{{ end }}
