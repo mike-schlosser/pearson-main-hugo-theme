@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "bootstrap": "4.4.1",
-    "postcss-cli": "^7.1.0"
-  }
-}
