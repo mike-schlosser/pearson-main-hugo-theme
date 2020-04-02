@@ -24,9 +24,8 @@
 
       <!-- TODO - dynamically determine which CSS partials to load on pages using Hugo -->
       {{ $sass         := resources.Get "scss/main.scss" }}
-      {{ $sassIncludes := (slice "vendor/") }}
       {{ $cssTarget    := "main.css" }}
-      {{ $cssOpts      := (dict "targetPath" $cssTarget "enableSourceMap" true "includePaths" $sassIncludes "outputStyle" "compressed") }}
+      {{ $cssOpts      := (dict "targetPath" $cssTarget "enableSourceMap" true "outputStyle" "compressed") }}
 
       {{ $style := $sass | toCSS $cssOpts }}
       <link rel="preload" href="{{ $style.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
