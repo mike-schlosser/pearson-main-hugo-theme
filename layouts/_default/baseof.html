@@ -23,11 +23,7 @@
       <link rel="shortcut icon" href="/static/assets/favicon.ico">
 
       <!-- TODO - dynamically determine which CSS partials to load on pages using Hugo -->
-      {{ $sass         := resources.Get "scss/main.scss" }}
-      {{ $cssTarget    := "main.css" }}
-      {{ $cssOpts      := (dict "targetPath" $cssTarget "enableSourceMap" true "outputStyle" "compressed") }}
-
-      {{ $style := $sass | toCSS $cssOpts }}
+      {{ $style := resources.Get "css/bootstrap.css" | minify }}
       <link rel="preload" href="{{ $style.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
       <noscript><link rel="stylesheet" href="{{ $style.Permalink }}"></noscript>
     {{ end }}
