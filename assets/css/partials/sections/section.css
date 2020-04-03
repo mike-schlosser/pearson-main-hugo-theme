@@ -1,0 +1,9 @@
+.wrapper section.section--overlap {
+    padding-top: 0;
+}
+
+@media (min-width: 768px) {
+	.wrapper > .section--overlap {
+	    margin-top: -100px;
+	}
+}

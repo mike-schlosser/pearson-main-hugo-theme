@@ -1,0 +1,248 @@
+.hero {
+  background-color: #aaa;
+  position: relative;
+  z-index: 7000;
+}
+
+.hero + .wrapper > .section--overlap:first-of-type:before {
+  height: 100% !important;
+}
+
+.hero--thank-you {
+  background-color: #FFFFFF;
+}
+
+.hero--thank-you .hero__content__title {
+  color: #777;
+}
+
+.hero--thank-you .hero__content__text {
+  color: #777;
+  max-width: 600px;
+  text-align: center;
+  text-transform: none;
+}
+
+.hero--thank-you .hero__content {
+  align-items: center;
+  height: auto;
+}
+
+.hero--thank-you .hero__content .btn {
+  background-color: #777;
+  color: #FFFFFF;
+  margin: 10px 20px;
+  min-width: 150px;
+}
+
+@media (min-width: 768px) {
+  .hero--thank-you .hero__content {
+    height: 360px;
+  }
+  .hero--thank-you .hero__content .btn {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    height: 360px;
+  }
+  .hero:not(.hero--home) + .wrapper > .section--overlap:first-of-type {
+    margin-top: -60px;
+  }
+  .hero:not(.hero--home) + .wrapper > .section--overlap:first-of-type:before {
+    height: calc(100% - 60px);
+    top: 60px;
+  }
+  .hero--home {
+    height: 640px;
+  }
+  .hero--home + .wrapper > .section--overlap:first-of-type {
+    margin-top: -100px;
+  }
+  .hero--home + .wrapper > .section--overlap:first-of-type:before {
+    height: calc(100% - 100px);
+    top: 100px;
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 10px 20px 0;
+  text-align: center;
+}
+
+@media (min-width: 1440px) {
+  .hero__content {
+    width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__content {
+    text-align: left;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero--home .hero__content {
+    height: 540px;
+  }
+}
+
+.hero--home .hero__content {
+  flex-direction: column-reverse;
+}
+
+.hero--home .hero__content__text {
+  color: #FFFFFF;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-transform: none;
+}
+
+.hero__content__title {
+  color: #FFFFFF;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .hero__content__title {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero__content__title {
+    font-size: 3.4rem;
+    line-height: 3.8rem;
+  }
+}
+
+.hero__content__text {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.hero__image {
+  background-color: #777;
+  background-image: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.hero__image img {
+  height: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero__image {
+    height: 360px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50vw;
+  }
+  .hero__video .hero__image {
+    width: 100%;
+  }
+  .hero--home .hero__image {
+    height: 640px;
+  }
+  .hero__image img {
+    display: none;
+  }
+}
+
+.hero__image__play-btn {
+  cursor: pointer;
+  left: 50%;
+  max-height: 100px;
+  max-width: 100px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+}
+
+.hero__image__play-btn i {
+  color: #FFFFFF;
+  font-size: 2rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero__video {
+  align-items: flex-start;
+  background: #755;
+  background: linear-gradient(0deg, #777 0%, black 60%);
+  display: flex;
+  margin: 0 -15px;
+  position: relative;
+  width: calc(100% + 30);
+}
+
+@media (min-width: 768px) {
+  .hero__video {
+    height: 360px;
+    width: 44vw;
+  }
+  .hero--home .hero__video {
+    height: 640px;
+  }
+}
+
+.hero__video-wrapper {
+  height: 0;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  position: relative;
+  width: 100%;
+}
+
+.hero__video-wrapper iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero__video .hero__image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.hero__round-btn {
+  background-color: #755;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  height: 0;
+  padding-top: 100%;
+  width: 100%;
+}

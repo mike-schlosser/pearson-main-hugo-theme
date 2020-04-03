@@ -1,0 +1,113 @@
+.lead-box.lead-box--with-bg-1:before, .lead-box.lead-box--with-bg-2:before, .lead-box.lead-box--with-bg-3:before {
+  background-color: #003057;
+  content: '';
+  display: block;
+  height: calc(50% + 30px);
+  left: -30px;
+  position: absolute;
+  top: 50%;
+  width: calc(100% + 60px);
+  z-index: 1;
+}
+
+.lead-box {
+  display: flex;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 7001;
+}
+
+.splash + .lead-box {
+  margin-top: -60px;
+}
+
+.lead-box.lead-box--with-bg-1, .lead-box.lead-box--with-bg-2, .lead-box.lead-box--with-bg-3 {
+  position: relative;
+}
+
+.lead-box.lead-box--with-bg-1:before {
+  background-image: url("/assets/img/patterns/Pattern1.svg");
+}
+
+.lead-box.lead-box--with-bg-2:before {
+  background-image: url("/assets/img/patterns/Pattern2.svg");
+}
+
+.lead-box.lead-box--with-bg-3:before {
+  background-image: url("/assets/img/patterns/Pattern3.svg");
+}
+
+.lead-box__container {
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.lead-box__container p {
+  margin: 0 0 1.5rem;
+  max-width: 680px;
+}
+
+.lead-box .row {
+  margin: 0;
+  width: 100%;
+}
+
+.lead-box .btn-primary {
+  width: 100%;
+}
+
+.lead-box div[class^="col-"], .lead-box div[class*=" col-"] {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lead-box h1, .lead-box h2, .lead-box h3, .lead-box h4, .lead-box h5, .lead-box h6 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.lead-box p {
+  color: #005A70;
+}
+
+@media (min-width: 768px) {
+  .lead-box {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    min-height: 240px;
+    margin-bottom: 100px;
+  }
+  .lead-box h1, .lead-box h2, .lead-box h3, .lead-box h4, .lead-box h5, .lead-box h6 {
+    text-align: left;
+  }
+  .lead-box div[class^="col-"], .lead-box div[class*=" col-"] {
+    align-items: flex-start !important;
+    justify-content: center;
+  }
+  .lead-box div[class^="col-"]:nth-last-child(2) p, .lead-box div[class*=" col-"]:nth-last-child(2) p {
+    padding-right: 50px;
+  }
+  .lead-box div[class^="col-"]:first-child:nth-last-child(1), .lead-box div[class*=" col-"]:first-child:nth-last-child(1) {
+    align-items: center !important;
+    text-align: center;
+  }
+  .splash + .lead-box {
+    margin-top: -100px;
+  }
+}
+
+.lead-box .btn-primary {
+  color: #fff;
+  background-color: #003057;
+  border-color: #003057;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  line-height: 2.5;
+  padding: 0.5rem 1rem;
+}

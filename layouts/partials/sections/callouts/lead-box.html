@@ -1,0 +1,23 @@
+{{ $style := resources.Get "css/partials/sections/callouts/lead_box.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+
+{{ with $.Site.Params.child }}
+{{ $override := resources.Get "css/partials/sections/callout/lead_box_override.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $override.Permalink }}">
+{{ end }}
+
+<div class="container">
+  <div class="lead-box ">
+    <div class="lead-box__container">
+      <div class="row">
+        <div class="col-12 col-md-7 offset-lg-1">
+          {{ with .header }}<h2>{{ . }}</h2>{{ end }}
+          {{ with .text }}<p>{{ . }}</p>{{ end }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+          {{ partial "utilities/button" .button }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

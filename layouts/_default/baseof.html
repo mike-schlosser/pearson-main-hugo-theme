@@ -39,7 +39,10 @@
 
     {{ with $.Site.Params.google_tag_manager }}{{ partial "body/gtm.html" . }}{{ end }}
 
-    {{ block "main" .}}
+    {{ block "hero" . }}
+    {{ end }}
+
+    {{ block "main" . }}
       <main role="main">
         {{ .Content }}
       </main>
@@ -51,12 +54,16 @@
 
     {{ block "scripts-footer" . }}
 
-      {{ $jquery := resources.Get "js/jquery/jquery-3.2.1.slim.min.js" }}
-      {{ $popper := resources.Get "js/popper/popper.min.js" }}
-      {{ $bootstrap := resources.Get "js/bootstrap/bootstrap.min.js" }}
+      {{ if $.Site.Params.override_footer_scripts }}
+        {{ partial "footer/footer_scripts_override.js" . }}
+      {{ else }}
+        {{ $jquery := resources.Get "js/jquery/jquery-3.2.1.slim.min.js" }}
+        {{ $popper := resources.Get "js/popper/popper.min.js" }}
+        {{ $bootstrap := resources.Get "js/bootstrap/bootstrap.min.js" }}
 
-      {{ $js := slice $jquery $popper $bootstrap | resources.Concat "js/main.js" | minify }}
-      <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
+        {{ $js := slice $jquery $popper $bootstrap | resources.Concat "js/main.js" | minify }}
+        <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
+      {{ end }}
 
     {{ end }}
 

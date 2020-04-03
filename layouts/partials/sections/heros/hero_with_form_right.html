@@ -1,0 +1,26 @@
+{{ $style := resources.Get "css/partials/sections/heros/hero_with_form_right.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+
+{{ with $.Site.Params.child }}
+{{ $override := resources.Get "css/partials/sections/heros/hero_with_form_right_override.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $override.Permalink }}">
+{{ end }}
+
+<section id="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+        <div data-aos="zoom-out">
+          {{ with .header }}<h1>{{ . | safeHTML }}</h1>{{ end }}
+          {{ with .sub_header }}<h2>{{ . }}</h2>{{ end }}
+            <div class="text-center text-lg-left">
+              {{ partial "utilities/button" .button }}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 hero-img">
+          {{ partial "utilities/form_single" .form }}
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->

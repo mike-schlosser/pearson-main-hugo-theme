@@ -1,14 +1,16 @@
 {{ $sectionType := .type }}
 <section class="section{{ with $sectionType }}--{{ . }}{{ end }}">
-	<div class="container">
-		{{ $modules := .modules }}
-		{{ range $modules}}
-			{{ $moduleType := .type }}
-			{{ if eq $moduleType "lead-box" }}
-				{{ partial "sections/lead-box.html" . }}
-			{{ else if eq $moduleType "content-box" }}
-				{{ partial "sections/content-box.html" . }}
-			{{ end }}
+	{{ $modules := .modules }}
+	{{ range $modules}}
+		{{ $moduleType := .type }}
+
+		{{ if eq $moduleType "lead-box" }}
+			{{ partial "sections/callouts/lead-box.html" . }}
+		{{ else if eq $moduleType "content-box" }}
+			{{ partial "sections/content/content-box.html" . }}
+		{{ else if eq $moduleType "hero-with-form-right" }}
+			{{ partial "sections/heros/hero_with_form_right.html" . }}
 		{{ end }}
-	</div>
+
+	{{ end }}
 </section>

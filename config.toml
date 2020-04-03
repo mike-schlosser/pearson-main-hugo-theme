@@ -6,7 +6,9 @@ media_folder= "static/images/uploads" # Media files will be stored in the repo u
 public_folder= "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 [params]
-google_tag_manager =""
+google_tag_manager = ""
+override_footer_scripts = false
+child = false
 
 [markup.goldmark.renderer]
 unsafe= true

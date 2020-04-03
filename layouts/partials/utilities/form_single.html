@@ -1,0 +1,8 @@
+<form>
+	{{ range . }}
+		<div class="form-group">
+			{{ with .label }}<label for="{{ . }}Field">{{ . }}</label>{{ end }}
+		    <input id="{{ .label }}Field" class="form-control {{ .classes }}" aria-describedby="{{ .name }}Help" type="{{ .type }}" name="{{ .name }}" placeholder="{{ .placeholder }}" {{ if .required }}required="required"{{end }}>
+		</div>
+	{{ end }}
+</form>

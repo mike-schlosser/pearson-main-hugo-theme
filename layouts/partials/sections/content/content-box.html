@@ -1,0 +1,32 @@
+{{ $style := resources.Get "css/partials/sections/content/content_box.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+
+{{ with $.Site.Params.child }}
+{{ $override := resources.Get "css/partials/sections/content/content_box_override.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $override.Permalink }}">
+{{ end }}
+
+<div class="content-box">
+  {{ with .title }}<div class="content-box__title">{{ . }}</div>{{ end }}
+  {{ with .subtitle }}<h2 class="text-center">{{ . }}</h2>{{ end }}
+  <div class="row">
+    <div class="col-12 col-sm-5 offset-sm-1">
+      {{ with .text }}<p>{{ . }}</p>{{ end }}
+    </div>
+    <div class="col-12 col-sm-5">
+      {{ with .list }}
+      <ul>
+        {{ range . }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </div>
+  {{ with .bottom_text }}<p class="text-center"><strong>{{ . }}</strong></p>{{ end }}
+  {{ with .button }}
+  <p class="text-center">
+    {{ partial "utilities/button" . }}
+  </p>
+  {{ end }}
+</div>

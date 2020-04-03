@@ -1,8 +1,20 @@
+{{ define "hero" }}
+	{{/* {{ partial "sections/heros/hero.html" .Params.hero }} */}}
+{{ end }}
+
 {{ define "main" }}
 	<main class="wrapper" role="main">
 	{{ $sections := .Params.sections }}
 
 	{{ range $sections }}
+		{{ $style := resources.Get "css/partials/sections/section.css" | minify }}
+		<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+
+		{{ with $.Site.Params.child }}
+		{{ $override := resources.Get "css/partials/sections/section_override.css" | minify }}
+		<link rel="stylesheet" type="text/css" href="{{ $override.Permalink }}">
+		{{ end }}
+
 		{{ partial "sections/loop.html" . }}
 	{{ end }}
 	</main>
