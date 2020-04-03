@@ -39,6 +39,9 @@
 
     {{ with $.Site.Params.google_tag_manager }}{{ partial "body/gtm.html" . }}{{ end }}
 
+    {{ block "header" . }}
+    {{ end }}
+
     {{ block "hero" . }}
     {{ end }}
 
