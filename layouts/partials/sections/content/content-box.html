@@ -10,23 +10,37 @@
   {{ with .title }}<div class="content-box__title">{{ . }}</div>{{ end }}
   {{ with .subtitle }}<h2 class="text-center">{{ . }}</h2>{{ end }}
   <div class="row">
+
+    {{ with .text }}
     <div class="col-12 col-sm-5 offset-sm-1">
-      {{ with .text }}<p>{{ . }}</p>{{ end }}
+      <p>{{ . }}</p>
     </div>
+    {{ end }}
+
+    {{ with .list }}
     <div class="col-12 col-sm-5">
-      {{ with .list }}
       <ul>
         {{ range . }}
         <li>{{ . }}</li>
         {{ end }}
       </ul>
-      {{ end }}
     </div>
+    {{ end }}
+
   </div>
+
+  {{ with .text_single_column }}
+  <div class="row">
+    <p class="text-center">{{ . }}</p>
+  </div>
+  {{ end }}
+
   {{ with .bottom_text }}<p class="text-center"><strong>{{ . }}</strong></p>{{ end }}
+
   {{ with .button }}
   <p class="text-center">
     {{ partial "utilities/button" . }}
   </p>
   {{ end }}
+
 </div>

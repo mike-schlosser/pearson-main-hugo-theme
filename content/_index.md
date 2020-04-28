@@ -66,12 +66,19 @@
 						"text": "Get Started",
 						"classes": "btn-lg btn-primary"
 					}
-				}
-			]
-		},
-		{
-			"type": "",
-			"modules": [
+				},
+				{
+					"type": "content-box",
+					"title": "Why Education-as-a-Strategy?",
+					"subtitle": "Education-as-a-strategy can strengthen your bottom line.",
+					"text_single_column": "The traditional model of college providing graduates with job opportunities is fading, as student debt and mismatched skills expectations are on the rise. We work with organizations to flip the paradigm — leveraging the job as the pathway to education attainment. Our consultative approach establishes a mutually beneficial partnership for both company and educators alike, creating a 'win-win' model where everyone is driven to produce outcomes.",
+					"bottom_text": "Changing lives is easy.",
+					"button": {
+						"href": "/why-pearson.php",
+						"text": "Learn More",
+						"classes": "btn-lg btn-primary"
+					}
+				},
 				{
 					"type": "content-box",
 					"title": "Why Pearson?",

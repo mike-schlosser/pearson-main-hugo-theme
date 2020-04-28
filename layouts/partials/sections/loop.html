@@ -1,7 +1,10 @@
 {{ $sectionType := .type }}
+
 <section class="section{{ with $sectionType }}--{{ . }}{{ end }}">
 	{{ $modules := .modules }}
-	{{ range $modules}}
+
+	{{ range $modules }}
+
 		{{ $moduleType := .type }}
 
 		{{ if eq $moduleType "lead-box" }}
@@ -10,6 +13,10 @@
 			{{ partial "sections/content/content-box.html" . }}
 		{{ else if eq $moduleType "hero-with-form-right" }}
 			{{ partial "sections/heros/hero_with_form_right.html" . }}
+		{{ else if eq $moduleType "hero-with-video" }}
+			{{ partial "sections/heros/hero_with_video.html" . }}
+		{{ else if eq $moduleType "utilities" }}
+			{{ partial "utilities/example.html" . }}
 		{{ end }}
 
 	{{ end }}

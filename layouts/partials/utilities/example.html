@@ -1,0 +1,19 @@
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{{ range .utilities }}
+
+					{{ $utilityType := .type }}
+
+					{{ if eq $utilityType "alert" }}
+						{{ partial "utilities/alert.html" . }}
+					{{ else if eq $utilityType "button" }}
+						{{ partial "utilities/button.html" . }}
+					{{ end }}
+
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</section>
